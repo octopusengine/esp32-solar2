@@ -20,6 +20,13 @@ from config import Config
 from util.database.influxdb import InfluxDB
 from gc import mem_free
 
+config_setkeys = ["influx_url",
+                  "influx_db",
+                  "influx_usr",
+                  "influx_psw",
+                  "timer_interval",
+                  "treshold"]
+
 errorcount = 0
 reconnectcount = 0
 
@@ -193,7 +200,7 @@ def on_press_top_button():
 
 
 print("config/solar.json -->")
-config = Config("solar2") # = config/solar.json
+config = Config("solar2", config_setkeys) # = config/solar.json
 try:
     timer_interval = config.get("timer_interval") # minutes
     treshold = config.get("treshold") # RAW adc difference
