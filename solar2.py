@@ -136,7 +136,7 @@ def send_boot():
     if influx.write("octopuslab", start_boot = 1):
         pass
     else:
-        print("influx send_boot Exception: {0}".format(e))
+        print("influx send_boot Error")
 
 
 def send_bmp():
@@ -148,7 +148,7 @@ def send_bmp():
     if influx.write("octopuslab", temperature = temp, pressure = press):
         errorcount = 0
     else:
-        print("influx send_bme Exception: {0}".format(e))
+        print("influx send_bme Error")
         reconect()
 
 
@@ -159,7 +159,7 @@ def send_solar(s20=0,s21=0):
     if influx.write("octopuslab", solar20 = s20, solar21 = s21):
         errorcount = 0
     else:
-        print("influx send_solar Exception: {0}".format(e))
+        print("influx send_solar Error")
         reconect()
 
 
